@@ -1,6 +1,8 @@
 package lesson_2;
 
-ublic interface Array {
+public interface Array {
+
+    int[] rand();
 
     void add(int value);
 
