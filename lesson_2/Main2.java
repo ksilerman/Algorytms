@@ -19,9 +19,40 @@ public class Main2 {
     public static void main(String[] args) {
 //        testArrayList();
 //        testArray();
-        testArrayImpl();
+//        testArrayImpl();
+        testArrayRandom();
 
     }
+
+    private static void testArrayRandom() {
+        Array array1 = new ArrayImpl(100000);
+        array1.rand();
+        Array array2 = array1;
+        Array array3 = array1;
+        System.out.println("Размер массива = " + array1.getSize());
+        System.out.println("Произвожу сортировку пузырьками подождите...");
+        long start1 = System.nanoTime();
+        array1.sortBubble();
+        long finish1 = System.nanoTime();
+        System.out.println("Время потраченное на сортировку: " + TimeUnit.NANOSECONDS.toMillis(finish1 - start1) + " мсек");
+        System.out.println("---------");
+
+        System.out.println("Произвожу сортировку выборкой подождите...");
+        long start2 = System.nanoTime();
+        array2.sortSelect();
+        long finish2 = System.nanoTime();
+        System.out.println("Время потраченное на сортировку: " + TimeUnit.NANOSECONDS.toMillis(finish2 - start2) + " мсек");
+        System.out.println("---------");
+
+        System.out.println("Произвожу сортировку вставкой подождите...");
+        long start3 = System.nanoTime();
+        array3.sortInsert();
+        long finish3 = System.nanoTime();
+        System.out.println("Время потраченное на сортировку: " + TimeUnit.NANOSECONDS.toMillis(finish3 - start3) + " мсек");
+        System.out.println("---------");
+    }
+
+
 
     private static void testArrayImpl() {
 //        Array array = new SortedArrayImpl(5);
@@ -36,17 +67,7 @@ public class Main2 {
         array.add(6);
         array.add(3);
 
-//        array.sortBubble();
-//        array.sortSelect();
-        long start = System.nanoTime();
-        array.sortInsert();
-        long finish = System.nanoTime();
-        System.out.println(TimeUnit.NANOSECONDS.toMillis(finish - start));
-
         array.display();
-
-//        Random r = new Random();
-//        r.nextInt();
 
         System.out.println("contains 3: " + array.contains(3));
 
