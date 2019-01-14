@@ -10,6 +10,9 @@ public class main {
         itr.insertBefore("Sergey", 10);
 
         list.display();
+
+
+
     }
 
 }
