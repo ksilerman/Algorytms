@@ -1,6 +1,7 @@
 package lesson_2;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class ArrayImpl implements Array {
 
@@ -10,6 +11,16 @@ public class ArrayImpl implements Array {
     public ArrayImpl(int maxSize) {
         this.data = new int[maxSize];
 //        this.currentSize = 0;
+    }
+
+    @Override
+    public int[] rand() {
+
+        Random r = new Random();
+        for (int i = 0; i < data.length; i++) {
+        data[currentSize++] = r.nextInt(10);
+        }
+     return data;
     }
 
     @Override
@@ -97,8 +108,9 @@ public class ArrayImpl implements Array {
     public void display() {
         System.out.println("Display array:");
         for (int i = 0; i < currentSize; i++) {
-            System.out.println(data[i]);
+            System.out.print(data[i] + " ");
         }
+        System.out.println("");
         System.out.println("------------");
     }
 
